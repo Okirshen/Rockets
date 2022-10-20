@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style/base.css">
+	<link rel="stylesheet" href="style/login.css">
+	<title>Login</title>
+</head>
+<body>
+	<header>
+		<h1><a href="index.html">Rockets</a></h1>
+		<nav>
+			<ul>
+				<li><a href="ula.html">ULA</a></li>
+				<li><a href="spacex.html">SpaceX</a></li>
+				<li><a href="rocketlab.html">Rocket Lab</a></li>
+				<li><a href="login.html">Login</a></li>
+			</ul>
+		</nav>
+	</header>
+	<div class="form">
+		<input type="text" id="username" placeholder="username">
+		<input type="password" id="password" placeholder="password">
+		<button class="submit" onclick="submit()">Login</button>
+	</div>
+	<script>
+		let username = document.getElementById("username");
+		let password = document.getElementById("password");
+		function submit() {
+			const textAsBuffer = new TextEncoder().encode(password.value + "salt");
+			window.crypto.subtle.digest('SHA-256', textAsBuffer).then(hashBuffer => {
+				const hashArray = Array.from(new Uint8Array(hashBuffer))
+				const digest = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+				if (username.value == "admin" && digest == "7a37b85c8918eac19a9089c0fa5a2ab4dce3f90528dcdeec108b23ddf3607b99") {
+					alert("Logging In");
+				} else {
+					password.value = "";
+					alert("Wrong Password/Username");
+				}
+			});
+			
+		}
+	</script>	
+</body>	
+</html>

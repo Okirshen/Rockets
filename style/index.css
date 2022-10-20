@@ -1,0 +1,12 @@
+#main {
+	background: url("https://www.rocketlabusa.com/assets/Uploads/neutron-space.jpg") no-repeat;
+	height: 91vh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#main h1 {
+	font-size: 4em;
+}
