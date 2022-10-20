@@ -1,8 +1,9 @@
 #main {
-	background: url("https://www.rocketlabusa.com/assets/Uploads/neutron-space.jpg") no-repeat;
+	background: url("../assets/banner.jpg") no-repeat;
 	height: 91vh;
 	width: 100%;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
